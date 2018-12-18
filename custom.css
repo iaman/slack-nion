@@ -283,7 +283,10 @@ ts-mention {
 .c-menu {
   background-color: var(--background) !important;
   color: var(--text) !important;
-  border-color: var(--border-dim) !important; }
+  border-color: var(--border-dim) !important;
+  border-style: solid;
+  border-width: 1px;
+  max-width: 375px !important; }
 
 .popover_mask {
   background-color: rgba(0, 0, 0, 0.3); }
@@ -576,6 +579,7 @@ ts-mention {
     background: var(--background-hover) !important; }
 .client_main_container .c-message_actions__container {
   background: var(--background-elevated) !important;
+  border-color: var(--border-dim) !important;
   color: var(--text) !important; }
 .client_main_container .c-message_actions__button {
   color: var(--text) !important;
@@ -1130,16 +1134,16 @@ a .message_sender .member .member_preview_link {
 #fs_modal_header * {
   color: var(--text) !important; }
 
-.menu.p-emoji_picker {
+.c-menu.p-emoji_picker {
   background: var(--background-elevated) !important;
   color: var(--text) !important;
-  width: 380px; }
-  .menu.p-emoji_picker .p-emoji_picker__update_overlay {
+  width: 375px; }
+  .c-menu.p-emoji_picker .p-emoji_picker__update_overlay {
     background: var(--background-elevated);
     color: var(--text); }
-    .menu.p-emoji_picker .p-emoji_picker__update_overlay p {
+    .c-menu.p-emoji_picker .p-emoji_picker__update_overlay p {
       color: var(--text); }
-    .menu.p-emoji_picker .p-emoji_picker__update_overlay .c-button {
+    .c-menu.p-emoji_picker .p-emoji_picker__update_overlay .c-button {
       color: var(--text); }
 
 /* emojis */
@@ -1164,12 +1168,17 @@ a .message_sender .member .member_preview_link {
 .ts_icon.ts_icon_smile_o {
   color: var(--text); }
 
-.menu .p-emoji_picker__input_container, .menu .p-emoji_picker__list_container, .menu .p-emoji_picker__emoji_deluxe_label, .menu .p-emoji_picker__heading, .menu .p-emoji_picker__footer {
-  background: transparent;
+.c-menu .p-emoji_picker__input_container, .c-menu .p-emoji_picker__list_container, .c-menu .p-emoji_picker__emoji_deluxe_label, .c-menu .p-emoji_picker__heading, .c-menu .p-emoji_picker__footer {
   color: var(--text); }
+.c-menu .p-emoji_picker__emoji_deluxe_label, .c-menu .p-emoji_picker__heading, .c-menu .p-emoji_picker__footer {
+  background: transparent; }
+.c-menu .p-emoji_picker__input_container, .c-menu .p-emoji_picker__list_container {
+  background: var(--background); }
+.c-menu .p-emoji_picker__footer {
+  border-top-color: var(--border-bright); }
 
 .p-emoji_picker__group_tabs {
-  border-bottom-color: var(--primary); }
+  border-bottom-color: var(--border-bright); }
 
 .p-emoji_picker__group_tab {
   border: 1px solid transparent;
@@ -1187,11 +1196,11 @@ a .message_sender .member .member_preview_link {
   background-color: var(--background-elevated);
   color: var(--text); }
 
-.menu .p-emoji_picker__group_tab--active {
+.c-menu .p-emoji_picker__group_tab--active {
   background-color: var(--background);
   color: var(--text-special);
-  border: 1px solid var(--primary);
-  border-bottom-width: 2px; }
+  border: 1px solid var(--border-bright);
+  border-bottom-width: 1px; }
 
 #emoji_menu h3,
 #emoji_menu #emoji_preview_text {
@@ -1213,6 +1222,9 @@ a .message_sender .member .member_preview_link {
   line-height: 3rem;
   font-size: 3rem;
   margin-top: 3px !important; }
+
+.c-menu .p-emoji_picker__heading {
+  background-color: rgba(17, 0, 38, 0.9); }
 
 #msg_input {
   background: transparent !important;
@@ -1332,10 +1344,18 @@ ts-thread .thread_messages {
   border-color: var(--border-dim) !important; }
 ts-thread .thread_channel_name a {
   color: var(--text-special); }
+ts-thread .inline_message_input_container {
+  border-color: var(--border-dim) !important; }
 
 ts-thread .collapse_inline_thread_container:hover,
 ts-thread .view_all_replies_container:hover {
   background-color: var(--background-elevated); }
+
+#threads_msgs .inline_message_input_container.with_file_upload {
+  background-color: transparent !important;
+  color: var(--text) !important; }
+  #threads_msgs .inline_message_input_container.with_file_upload > form {
+    border-radius: 10px !important; }
 
 /* CodeMirror syntax highlighting */
 .cm-s-default .cm-header {

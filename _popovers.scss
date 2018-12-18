@@ -3,6 +3,9 @@
   background-color: $bg !important;
   color: $text !important;
   border-color: $borderDim !important;
+  border-style: solid;
+  border-width: 1px;
+  max-width: 375px !important;
 }
 
 .popover_mask {

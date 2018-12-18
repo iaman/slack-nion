@@ -47,9 +47,22 @@ ts-thread {
   .thread_channel_name a {
     color: $textSpecial;
   }
+
+  .inline_message_input_container {
+    border-color: $borderDim !important;
+  }
 }
 
 ts-thread .collapse_inline_thread_container:hover,
 ts-thread .view_all_replies_container:hover {
   background-color: $bg2;
+}
+
+#threads_msgs .inline_message_input_container.with_file_upload {
+  background-color: transparent !important;
+  color: $text !important;
+
+  > form {
+    border-radius: 10px !important;
+  }
 }
