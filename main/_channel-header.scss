@@ -1,7 +1,8 @@
 // The header at the top of the channel
 .channel_header {
   background: $bg2;
-  box-shadow: none;
+  box-shadow: 0 8px 0 0 $bg2 !important;
+  max-height: 53px;
 }
 
 // The channel info

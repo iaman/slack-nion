@@ -1,6 +1,6 @@
 #col_flex {
   background: $bg2;
-  border-left: none !important;
+  border-left-width: 1px !important;
 }
 
 .monkey_scroll_hider {
@@ -40,6 +40,10 @@
     .section_header,
     .section_title {
       color: $text !important;
+    }
+
+    &.channel_page_about {
+      border-top-width: 0 !important;
     }
   }
 

@@ -9,6 +9,10 @@
 
 .p-message_pane .c-message_list:not(.c-virtual_list--scrollbar):before,
 .p-message_pane .c-message_list.c-virtual_list--scrollbar > .c-scrollbar__hider:before {
-  border-bottom-color: $borderDim !important;
-  background: $bg;
+  border-bottom-color: transparent !important;
+  background: $bg2 !important;
+  box-shadow: 0 1px 0 0 $border !important;
+  left: -1px;
+  top: -23px !important;
+  z-index: 202;
 }

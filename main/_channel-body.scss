@@ -3,9 +3,10 @@
   color: $text;
 
   &::before {
-    border-bottom: 1px solid $borderDim !important;
-    background: $bg;
-    box-shadow: none;
+    border-color: transparent !important;
+    background: $bg2 !important;
+    box-shadow: 0 1px 0 0 $border !important;
+    z-index: 202;
   }
 
   // Remove box shadow on messages column
@@ -24,9 +25,35 @@
 
   // Day pill
   .c-message_list__day_divider__label__pill {
-    background-color: $bg2;
-    border: 1px solid $borderDim;
+    background-clip: border-box !important;
+    background-color: transparent !important;
+    background-image: linear-gradient(to bottom, $bg2 0%, $bg 100%);
+    background-position: center top;
+    background-size: 100%;
+    border-color: $borderDim;
+    border-bottom-color: transparent !important;
+    border-top-color: transparent !important;
+    border-radius: 0 !important;
+    border-style: solid;
+    border-width: 0 1px;
+    box-shadow: 0 -1px 0 0 $bg2;
     color: $text;
+    padding: 0.125rem 0.25rem;
+    transform: translateY(0.6875rem);
+    z-index: 203;
+  }
+
+  .c-virtual_list__item--sticky {
+    .c-message_list__day_divider__label__pill {
+      border-color: $border;
+      transform: translateY(0.8125rem);
+    }
+  }
+
+  .c-message_list.c-virtual_list--scrollbar[aria-label*="channel"] {
+    .c-message_list__day_divider__label__pill {
+      transform: translateY(0.6875rem);
+    }
   }
 
   // timestamp
@@ -93,6 +120,21 @@
   }
 
   // Day divider
+  .c-message_list__day_divider {
+    background-image: linear-gradient(to bottom, $bg 0%, $bg2 100%);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 30px;
+    padding-top: 30px;
+  }
+
+  .c-message_list.c-virtual_list--scrollbar[aria-label*="channel"] {
+    .c-message_list__day_divider {
+      background-size: 100% 28px;
+      padding-top: 28px;
+    }
+  }
+
   .c-message_list__day_divider__line {
     border-top-color: $borderDim !important;
   }
@@ -110,5 +152,4 @@
   .c-message--hover {
     background: $bgHover !important;
   }
-
 }

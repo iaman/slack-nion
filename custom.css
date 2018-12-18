@@ -1,35 +1,34 @@
-@import url("https://fonts.googleapis.com/css?family=Bad+Script|Rajdhani");
 :root {
   /* Modify these to change your theme colors: */
-  --primary: #E5C17C;
-  --accent: #568AF2;
-  --text: #ABB2BF;
-  --background: #282C34;
-  --background-elevated: #3B4048;
+  --primary: #39d2f5;
+  --accent: #39f596;
+  --text: #ff69e8;
+  --background: #110026;
+  --background-elevated: #25004f;
   /* These should be less important: */
-  --background-hover: #525964;
-  --background-light: #AAA;
-  --background-bright: #FFF;
-  --border-dim: #666;
-  --border-bright: var(--primary);
+  --background-hover: #3c0076;
+  --background-light: #580099;
+  --background-bright: #7a00b6;
+  --border-dim: #ce14df;
+  --border-bright: #f539e4;
   --text-bright: #FFF;
-  --text-dim: #555c69;
+  --text-dim: #f539e4;
   --text-special: var(--primary);
-  --text-accent: var(--text-bright);
-  --scrollbar-background: #000;
-  --scrollbar-border: var(--primary);
-  --yellow: #fc0;
-  --green: #98C379;
-  --cyan: #56B6C2;
-  --blue: #61AFEF;
-  --purple: #C678DD;
-  --red: #E06C75;
-  --red2: #BE5046;
-  --orange: #D19A66;
-  --orange2: #E5707B;
-  --gray: #3E4451;
-  --silver: #9da5b4;
-  --black: #21252b; }
+  --text-accent: var(--background);
+  --scrollbar-background: #110026;
+  --scrollbar-border: #f539e4;
+  --yellow: #f5bb39;
+  --green: #39f596;
+  --cyan: #39d2f5;
+  --blue: #0882cd;
+  --purple: #a408cd;
+  --red: #f53970;
+  --red2: #df145e;
+  --orange: #df8514;
+  --orange2: #b64300;
+  --gray: #ec25e8;
+  --silver: #7a00b6;
+  --black: #110026; }
 
 @keyframes fade-background-highlight {
   from {
@@ -353,7 +352,8 @@ ts-mention {
       background: var(--background-hover); }
   .client_channels_list_container #team_menu {
     background-color: var(--background-elevated) !important;
-    border-color: transparent !important; }
+    border-color: transparent !important;
+    box-shadow: 0 1px 0 0 var(--border-bright); }
     .client_channels_list_container #team_menu:hover, .client_channels_list_container #team_menu:active {
       background-color: var(--background-hover); }
     .client_channels_list_container #team_menu .team_name_caret,
@@ -363,13 +363,17 @@ ts-mention {
       color: var(--text-bright); }
   .client_channels_list_container #col_channels {
     background: var(--background-elevated) !important;
+    box-shadow: 1px 0 0 0 var(--border-bright);
     /*"more unreads" bottom*/
     /*"more unreads" bottom */ }
     .client_channels_list_container #col_channels .p-channel_sidebar {
       background-color: var(--background-elevated);
       color: var(--text); }
+      .client_channels_list_container #col_channels .p-channel_sidebar__folder_heading, .client_channels_list_container #col_channels .p-channel_sidebar__section_heading {
+        padding-right: 0; }
       .client_channels_list_container #col_channels .p-channel_sidebar__section_heading {
-        border-bottom: 1px solid var(--border-dim) !important; }
+        border-bottom: 1px solid transparent !important;
+        box-shadow: inset 0 -1px 0 0 var(--border-dim) !important; }
         .client_channels_list_container #col_channels .p-channel_sidebar__section_heading .p-channel_sidebar__section_heading_label {
           font-weight: bold !important; }
       .client_channels_list_container #col_channels .p-channel_sidebar__badge {
@@ -382,18 +386,21 @@ ts-mention {
         border-color: var(--primary) !important;
         color: var(--text-bright) !important; }
       .client_channels_list_container #col_channels .p-channel_sidebar__link, .client_channels_list_container #col_channels .p-channel_sidebar__channel {
+        border-color: transparent;
+        border-radius: 0 20px 20px 0;
+        border-style: solid;
+        border-width: 1px 1px 1px 0;
         color: var(--text) !important; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link:hover, .client_channels_list_container #col_channels .p-channel_sidebar__link:link, .client_channels_list_container #col_channels .p-channel_sidebar__link:visited, .client_channels_list_container #col_channels .p-channel_sidebar__channel:hover, .client_channels_list_container #col_channels .p-channel_sidebar__channel:link, .client_channels_list_container #col_channels .p-channel_sidebar__channel:visited {
           color: var(--text) !important; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link:hover, .client_channels_list_container #col_channels .p-channel_sidebar__channel:hover {
           background-color: var(--background-hover) !important;
-          border-color: transparent; }
+          border-color: var(--border-dim); }
         .client_channels_list_container #col_channels .p-channel_sidebar__link--unread, .client_channels_list_container #col_channels .p-channel_sidebar__channel--unread {
           color: var(--text-bright) !important; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link--selected, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected {
           background: var(--background) !important;
-          border: solid var(--border-bright);
-          border-width: 1px 1px 1px 0;
+          border-color: var(--border-bright);
           border-radius: 0 20px 20px 0; }
           .client_channels_list_container #col_channels .p-channel_sidebar__link--selected .c-presence, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected .c-presence {
             color: var(--primary) !important; }
@@ -405,6 +412,8 @@ ts-mention {
           color: var(--green); }
       .client_channels_list_container #col_channels .p-channel_sidebar__close_container {
         background: none !important; }
+    .client_channels_list_container #col_channels .p-channel_sidebar__static_list {
+      padding-right: 12px; }
     .client_channels_list_container #col_channels .p-channel_sidebar__jumper {
       background: var(--background);
       color: var(--text); }
@@ -418,10 +427,15 @@ ts-mention {
       border: 1px solid var(--background-bright);
       border-bottom: none;
       border-radius: 15px 15px 0 0; }
+  .client_channels_list_container .p-channel_sidebar__close {
+    right: 0.1875rem; }
+    .client_channels_list_container .p-channel_sidebar__close:hover {
+      color: var(--red); }
 
 .client_main_container .channel_header {
   background: var(--background-elevated);
-  box-shadow: none; }
+  box-shadow: 0 8px 0 0 var(--background-elevated) !important;
+  max-height: 53px; }
 .client_main_container .messages_header {
   color: var(--text); }
   .client_main_container .messages_header .channel_title .channel_name {
@@ -474,9 +488,10 @@ ts-mention {
   background: var(--background);
   color: var(--text); }
   .client_main_container #client_body::before {
-    border-bottom: 1px solid var(--border-dim) !important;
-    background: var(--background);
-    box-shadow: none; }
+    border-color: transparent !important;
+    background: var(--background-elevated) !important;
+    box-shadow: 0 1px 0 0 var(--border-bright) !important;
+    z-index: 202; }
   .client_main_container #client_body #col_messages {
     box-shadow: none; }
   .client_main_container #client_body #threads_msgs_scroller_div, .client_main_container #client_body ts-thread {
@@ -484,9 +499,27 @@ ts-mention {
     .client_main_container #client_body #threads_msgs_scroller_div .c-message_list__day_divider__label, .client_main_container #client_body ts-thread .c-message_list__day_divider__label {
       background: var(--background); }
   .client_main_container #client_body .c-message_list__day_divider__label__pill {
-    background-color: var(--background-elevated);
-    border: 1px solid var(--border-dim);
-    color: var(--text); }
+    background-clip: border-box !important;
+    background-color: transparent !important;
+    background-image: linear-gradient(to bottom, var(--background-elevated) 0%, var(--background) 100%);
+    background-position: center top;
+    background-size: 100%;
+    border-color: var(--border-dim);
+    border-bottom-color: transparent !important;
+    border-top-color: transparent !important;
+    border-radius: 0 !important;
+    border-style: solid;
+    border-width: 0 1px;
+    box-shadow: 0 -1px 0 0 var(--background-elevated);
+    color: var(--text);
+    padding: 0.125rem 0.25rem;
+    transform: translateY(0.6875rem);
+    z-index: 203; }
+  .client_main_container #client_body .c-virtual_list__item--sticky .c-message_list__day_divider__label__pill {
+    border-color: var(--border-bright);
+    transform: translateY(0.8125rem); }
+  .client_main_container #client_body .c-message_list.c-virtual_list--scrollbar[aria-label*="channel"] .c-message_list__day_divider__label__pill {
+    transform: translateY(0.6875rem); }
   .client_main_container #client_body .c-timestamp__label {
     color: var(--text) !important; }
   .client_main_container #client_body .c-message {
@@ -523,6 +556,15 @@ ts-mention {
       color: var(--text) !important; }
       .client_main_container #client_body .c-message_attachment .c-message_attachment__media_trigger .c-expandable_trigger {
         color: var(--primary) !important; }
+  .client_main_container #client_body .c-message_list__day_divider {
+    background-image: linear-gradient(to bottom, var(--background) 0%, var(--background-elevated) 100%);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 30px;
+    padding-top: 30px; }
+  .client_main_container #client_body .c-message_list.c-virtual_list--scrollbar[aria-label*="channel"] .c-message_list__day_divider {
+    background-size: 100% 28px;
+    padding-top: 28px; }
   .client_main_container #client_body .c-message_list__day_divider__line {
     border-top-color: var(--border-dim) !important; }
   .client_main_container #client_body .c-message_list__day_divider__label {
@@ -583,7 +625,7 @@ ts-mention {
 
 #col_flex {
   background: var(--background-elevated);
-  border-left: none !important; }
+  border-left-width: 1px !important; }
 
 .monkey_scroll_hider {
   background: var(--background-elevated); }
@@ -610,6 +652,8 @@ ts-mention {
   #details_tab .channel_page_section .section_header,
   #details_tab .channel_page_section .section_title {
     color: var(--text) !important; }
+  #details_tab .channel_page_section.channel_page_about {
+    border-top-width: 0 !important; }
 #details_tab .conversation_details .member_info_timezone {
   border-top-color: var(--border-dim); }
 
@@ -720,8 +764,12 @@ ts-mention {
 
 .p-message_pane .c-message_list:not(.c-virtual_list--scrollbar):before,
 .p-message_pane .c-message_list.c-virtual_list--scrollbar > .c-scrollbar__hider:before {
-  border-bottom-color: var(--border-dim) !important;
-  background: var(--background); }
+  border-bottom-color: transparent !important;
+  background: var(--background-elevated) !important;
+  box-shadow: 0 1px 0 0 var(--border-bright) !important;
+  left: -1px;
+  top: -23px !important;
+  z-index: 202; }
 
 #client-ui .file_list_item,
 .tab_container .file_list_item {
@@ -1762,8 +1810,6 @@ feature_archive_deeplink feature_texty winssb light_theme {
   color: var(--text) !important; }
 
 .message_body, .file_container, .initial_comment {
-  font-weight: lighter !important;
-  font-family: var(--font-family) !important;
   margin-left: 20px !important; }
 
 /*# sourceMappingURL=custom.css.map */

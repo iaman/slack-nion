@@ -1,41 +1,39 @@
-@import url('https://fonts.googleapis.com/css?family=Bad+Script|Rajdhani');
-
 :root {
   /* Modify these to change your theme colors: */
-  --primary: #E5C17C;
-  --accent: #568AF2;
-  --text: #ABB2BF;
-  --background: #282C34;
-  --background-elevated: #3B4048;
+  --primary: #39d2f5;
+  --accent: #39f596;
+  --text: #ff69e8;
+  --background: #110026;
+  --background-elevated: #25004f;
 
   /* These should be less important: */
-  --background-hover: lighten(#3B4048, 10%);
-  --background-light: #AAA;
-  --background-bright: #FFF;
+  --background-hover: #3c0076;
+  --background-light: #580099;
+  --background-bright: #7a00b6;
 
-  --border-dim: #666;
-  --border-bright: var(--primary);
+  --border-dim: #ce14df;
+  --border-bright: #f539e4;
 
   --text-bright: #FFF;
-  --text-dim: #555c69;
+  --text-dim: #f539e4;
   --text-special: var(--primary);
-  --text-accent: var(--text-bright);
+  --text-accent: var(--background);
 
-  --scrollbar-background: #000;
-  --scrollbar-border: var(--primary);
+  --scrollbar-background: #110026;
+  --scrollbar-border: #f539e4;
 
-  --yellow: #fc0;
-  --green: #98C379;
-  --cyan: #56B6C2;
-  --blue: #61AFEF;
-  --purple: #C678DD;
-  --red: #E06C75;
-  --red2: #BE5046;
-  --orange: #D19A66;
-  --orange2: #E5707B;
-  --gray: #3E4451;
-  --silver: #9da5b4;
-  --black: #21252b;
+  --yellow: #f5bb39;
+  --green: #39f596;
+  --cyan: #39d2f5;
+  --blue: #0882cd;
+  --purple: #a408cd;
+  --red: #f53970;
+  --red2: #df145e;
+  --orange: #df8514;
+  --orange2: #b64300;
+  --gray: #ec25e8;
+  --silver: #7a00b6;
+  --black: #110026;
 }
 
 $primary: var(--primary);
@@ -555,7 +553,5 @@ feature_archive_deeplink feature_texty winssb light_theme {
 }
 
 .message_body, .file_container, .initial_comment {
-  font-weight: lighter !important;
-  font-family: var(--font-family) !important;
   margin-left: 20px !important;
 }
