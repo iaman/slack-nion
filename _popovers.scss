@@ -1,10 +1,13 @@
-.popover_menu,
-.c-menu {
+
+.c-search_modal .popover > div, .popover_menu, .c-menu {
   background-color: $bg !important;
   color: $text !important;
   border-color: $borderDim !important;
   border-style: solid;
   border-width: 1px;
+}
+
+.popover_menu, .c-menu {
   max-width: 375px !important;
 }
 

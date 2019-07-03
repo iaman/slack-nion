@@ -2,8 +2,12 @@
 @import "complete";
 
 #footer {
-  background: $bg !important;
+  background-color: transparent !important;
+  background-image: linear-gradient(to bottom, rgba(#110026, 0) 0, $bg 0.6875rem, $bg 100%);
+  background-repeat: no-repeat;
+  background-size: 100%;
   box-shadow: none;
+  padding-top: 1.375rem;
 }
 
 #msg_preview {

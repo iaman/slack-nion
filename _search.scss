@@ -1,0 +1,117 @@
+.c-search_modal {
+  &:not(.c-search_modal--primarysearch) .c-search__input_box {
+    background: transparent !important;
+  }
+
+  .c-search__input_and_close, .c-search-autocomplete footer {
+    background: $bg2;
+    border-color: $borderDim;
+    color: $text;
+  }
+
+  .c-search-autocomplete {
+    header {
+      color: $text;
+    }
+  }
+
+  .c-search_autocomplete__suggestion_item {
+    color: $textDim;
+
+    .token {
+      background: $bg;
+      box-shadow: inset 0 0 0 1px $border;
+      border-color: $border;
+      color: $textBright;
+    }
+
+    &--selected {
+      background: $bgHover;
+      color: $textBright;
+    }
+  }
+}
+
+.c-search {
+  background: $bg;
+  color: $text;
+}
+
+.c-search__input_box .c-search__input_box__input {
+  border-color: $border;
+  border-width: 1px;
+}
+
+.c-search__input_box__clear, .c-search__input_box__icon {
+  color: $textDim;
+}
+
+.c-search__input_box__clear {
+  &, .c-search-modal & {
+    border-color: $border;    
+  }
+
+  &:hover {
+    color: $text;
+  }
+}
+
+.c-search__input_and_close__close {
+  color: $textDim;
+
+  &:hover {
+    color: $text;
+  }
+}
+
+.c-search__section_header {
+  color: $text;
+}
+
+.p-search_filter__dates {
+  background: $bg2;
+  border-color: $border;
+
+  .p-search_filter__date {
+    &, .p-search_filter__date_readout {
+      color: $text;
+    }
+
+    &:first-child {
+      border-color: $border;
+    }
+  }
+}
+
+.p-search_filter__title {
+  &:before {
+    border-color: $border;
+  }
+}
+
+.p-search_filter__title_text {
+  background: $bg;
+  border-color: $border;
+  border-style: solid;
+  border-width: 0 1px 0 0;
+  color: $text;
+}
+
+.c-search__tabs {
+  background-color: $bg;
+  box-shadow: inset 0 -1px 0 0 $borderDim;
+}
+
+.c-search__tab.c-tabs__tab.c-tabs__tab--active {
+  &, &:active, &:focus {
+    box-shadow: inset 0 -2px 0 0 $accent;
+  }
+}
+
+.c-tabs__tab.c-tabs__tab, .c-tabs__tab {
+  color: $text;
+}
+
+.c-tabs__tab.c-tabs__tab--active, .c-tabs__tab:active {
+  color: $textBright;
+}

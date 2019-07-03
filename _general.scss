@@ -82,10 +82,15 @@ pre {
   color: $text;
 }
 
-.c-button, .c-button--outline {
+.c-button, .c-button--outline, .c-reaction, .c-reaction_add {
   background: $bg;
   color: $text;
+  border-width: 0 !important;
   box-shadow: inset 0 0 0 1px $borderDim;
+
+  &:hover {
+    box-shadow: inset 0 0 0 1px $primary;
+  }
 }
 
 // Presence Indicators
@@ -151,8 +156,25 @@ svg.ts_icon_spinner:empty {
   }
 
   &.btn_green {
-    background: $primary !important;
-    color: $textBright !important;
+    background: $bg !important;
+    border-color: $primary !important;
+    color: $primary !important;
+
+    &::after {
+      border-color: $primary !important;
+      color: $primary !important;
+    }
+
+    &:hover {
+      background: $bgHover !important;
+      border-color: $accent !important;
+      color: $accent !important;
+
+      &::after {
+        border-color: $accent !important;
+        color: $accent !important;
+      }
+    }
   }
 }
 
@@ -221,9 +243,31 @@ ts-mention {
 }
 
 // New messages banner
+.p-message_pane__unread_banner {
+  background: $bg;
+  box-shadow: 0 0 0 1px $bg;
+}
+
 .p-message_pane__unread_banner__banner {
-  background: $accent !important;
+  background: transparent !important;
+  border-color: $red2;
+  border-style: solid;
+  border-width: 1px 0 1px 1px;
   color: $textBright !important;
+}
+
+.p-message_pane__unread_banner__close {
+  background: transparent !important;
+  border-color: $primary !important;
+  border-style: solid;
+  border-width: 1px !important;
+  color: $primary !important;
+
+  &:hover {
+    background: $bgHover !important;
+    border-color: $accent !important;
+    color: $accent !important;
+  }
 }
 
 // unread
@@ -233,8 +277,18 @@ ts-mention {
   }
 
   &__label {
-    background: $red2 !important;
-    color: $textBright !important;
+    background-color: transparent !important;
+    background-image: linear-gradient(to bottom, rgba(#25004f, 0), rgba(#25004f, 1) 40%, rgba(#25004f, 1) 60%, rgba(#25004f, 0) 100%);
+    background-position: left top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border-radius: 0 !important;
+    box-shadow: 28px 0 28px 0 $bg2, inset 1px 0 0 0 $red2;
+    color: $red2 !important;
+    padding-left: 8px;
+    padding-right: 22px;
+    text-shadow: 0 0 2px $bg;
+    right: 0;
   }
 }
 
@@ -250,6 +304,7 @@ ts-mention {
 }
 
 // Don't know what are these but they look like mentions
+
 .feature_name_tagging_client {
   .app_preview_link_slug,
   .internal_member_link,
@@ -258,6 +313,12 @@ ts-mention {
     background-color: $accent !important;
     color: $textAccent !important;
   }
+}
+
+.c-member_slug--link {
+  background-color: $bg !important;
+  box-shadow: inset 0 0 0 1px $border !important;
+  color: $textBright !important;
 }
 
 .very_small_bottom_margin {

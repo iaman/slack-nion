@@ -101,10 +101,13 @@ pre {
   box-shadow: 0 1px var(--border-dim);
   color: var(--text); }
 
-.c-button, .c-button--outline {
+.c-button, .c-button--outline, .c-reaction, .c-reaction_add {
   background: var(--background);
   color: var(--text);
+  border-width: 0 !important;
   box-shadow: inset 0 0 0 1px var(--border-dim); }
+  .c-button:hover, .c-button--outline:hover, .c-reaction:hover, .c-reaction_add:hover {
+    box-shadow: inset 0 0 0 1px var(--primary); }
 
 .presence {
   color: var(--text); }
@@ -150,8 +153,25 @@ svg.ts_icon_spinner:empty {
   .btn.btn_green,
   .btn.dialog_go.btn_green,
   .btn_outline.btn_green {
-    background: var(--primary) !important;
-    color: var(--text-bright) !important; }
+    background: var(--background) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important; }
+    .btn.btn_green::after,
+    .btn.dialog_go.btn_green::after,
+    .btn_outline.btn_green::after {
+      border-color: var(--primary) !important;
+      color: var(--primary) !important; }
+    .btn.btn_green:hover,
+    .btn.dialog_go.btn_green:hover,
+    .btn_outline.btn_green:hover {
+      background: var(--background-hover) !important;
+      border-color: var(--accent) !important;
+      color: var(--accent) !important; }
+      .btn.btn_green:hover::after,
+      .btn.dialog_go.btn_green:hover::after,
+      .btn_outline.btn_green:hover::after {
+        border-color: var(--accent) !important;
+        color: var(--accent) !important; }
 
 .lazy_filter_select .lfs_input_container {
   border-color: var(--border-dim) !important;
@@ -208,15 +228,43 @@ ts-mention {
   color: var(--text-accent) !important;
   background: var(--primary) !important; }
 
+.p-message_pane__unread_banner {
+  background: var(--background);
+  box-shadow: 0 0 0 1px var(--background); }
+
 .p-message_pane__unread_banner__banner {
-  background: var(--accent) !important;
+  background: transparent !important;
+  border-color: var(--red2);
+  border-style: solid;
+  border-width: 1px 0 1px 1px;
   color: var(--text-bright) !important; }
+
+.p-message_pane__unread_banner__close {
+  background: transparent !important;
+  border-color: var(--primary) !important;
+  border-style: solid;
+  border-width: 1px !important;
+  color: var(--primary) !important; }
+  .p-message_pane__unread_banner__close:hover {
+    background: var(--background-hover) !important;
+    border-color: var(--accent) !important;
+    color: var(--accent) !important; }
 
 .c-message_list__unread_divider__separator {
   border-color: var(--red2) !important; }
 .c-message_list__unread_divider__label {
-  background: var(--red2) !important;
-  color: var(--text-bright) !important; }
+  background-color: transparent !important;
+  background-image: linear-gradient(to bottom, rgba(37, 0, 79, 0), #25004f 40%, #25004f 60%, rgba(37, 0, 79, 0) 100%);
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-radius: 0 !important;
+  box-shadow: 28px 0 28px 0 var(--background-elevated), inset 1px 0 0 0 var(--red2);
+  color: var(--red2) !important;
+  padding-left: 8px;
+  padding-right: 22px;
+  text-shadow: 0 0 2px var(--background);
+  right: 0; }
 
 #snippet_prompt,
 #special_formatting_text,
@@ -232,6 +280,11 @@ ts-mention {
 .feature_name_tagging_client ts-mention {
   background-color: var(--accent) !important;
   color: var(--text-accent) !important; }
+
+.c-member_slug--link {
+  background-color: var(--background) !important;
+  box-shadow: inset 0 0 0 1px var(--border-bright) !important;
+  color: var(--text-bright) !important; }
 
 .very_small_bottom_margin {
   color: var(--text-bright) !important; }
@@ -279,13 +332,14 @@ ts-mention {
   #trouble_loading a {
     color: var(--primary); }
 
-.popover_menu,
-.c-menu {
+.c-search_modal .popover > div, .popover_menu, .c-menu {
   background-color: var(--background) !important;
   color: var(--text) !important;
   border-color: var(--border-dim) !important;
   border-style: solid;
-  border-width: 1px;
+  border-width: 1px; }
+
+.popover_menu, .c-menu {
   max-width: 375px !important; }
 
 .popover_mask {
@@ -389,11 +443,25 @@ ts-mention {
         border-color: var(--primary) !important;
         color: var(--text-bright) !important; }
       .client_channels_list_container #col_channels .p-channel_sidebar__link, .client_channels_list_container #col_channels .p-channel_sidebar__channel {
+        animation-delay: 180ms;
+        animation-duration: 1080ms;
+        animation-fill-mode: none;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        background-clip: padding-box !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' width='16' viewBox='0 0 32 64'%3E%3Crect fill='%23110026' width='32' height='64'/%3E%3Cpolygon fill='%2325004f' points='32,32 16,0 0,0 16,32 0,64 16,64 '/%3E%3C/svg%3E");
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 0 32px;
         border-color: transparent;
-        border-radius: 0 20px 20px 0;
+        border-radius: 0 !important;
         border-style: solid;
-        border-width: 1px 1px 1px 0;
-        color: var(--text) !important; }
+        border-width: 1px 0;
+        color: var(--text) !important;
+        transition-delay: 0ms, 180ms, 0ms, 0ms, 0ms;
+        transition-duration: 90ms, 0ms, 180ms, 90ms, 90ms;
+        transition-property: background-color, background-position, background-size, border-color, color;
+        transition-timing-function: ease-in-out; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link:hover, .client_channels_list_container #col_channels .p-channel_sidebar__link:link, .client_channels_list_container #col_channels .p-channel_sidebar__link:visited, .client_channels_list_container #col_channels .p-channel_sidebar__channel:hover, .client_channels_list_container #col_channels .p-channel_sidebar__channel:link, .client_channels_list_container #col_channels .p-channel_sidebar__channel:visited {
           color: var(--text) !important; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link:hover, .client_channels_list_container #col_channels .p-channel_sidebar__channel:hover {
@@ -402,15 +470,25 @@ ts-mention {
         .client_channels_list_container #col_channels .p-channel_sidebar__link--unread, .client_channels_list_container #col_channels .p-channel_sidebar__channel--unread {
           color: var(--text-bright) !important; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link--selected, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected {
-          background: var(--background) !important;
-          border-color: var(--border-bright);
-          border-radius: 0 20px 20px 0; }
+          animation-name: activeListItemScroll;
+          background-color: transparent !important;
+          background-repeat: repeat-x;
+          background-size: 16px 32px;
+          border-color: transparent !important;
+          border-radius: 0 !important; }
+          .client_channels_list_container #col_channels .p-channel_sidebar__link--selected, .client_channels_list_container #col_channels .p-channel_sidebar__link--selected:link, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected:link {
+            color: var(--primary) !important; }
+          .client_channels_list_container #col_channels .p-channel_sidebar__link--selected:after, .client_channels_list_container #col_channels .p-channel_sidebar__link--selected:before, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected:after, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected:before {
+            color: var(--primary) !important; }
+          .client_channels_list_container #col_channels .p-channel_sidebar__link--selected:hover, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected:hover {
+            animation-name: activeListItemScrollQuick;
+            background-color: transparent !important; }
           .client_channels_list_container #col_channels .p-channel_sidebar__link--selected .c-presence, .client_channels_list_container #col_channels .p-channel_sidebar__channel--selected .c-presence {
             color: var(--primary) !important; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link--draft, .client_channels_list_container #col_channels .p-channel_sidebar__channel--draft {
           font-style: italic; }
         .client_channels_list_container #col_channels .p-channel_sidebar__link .c-presence--away, .client_channels_list_container #col_channels .p-channel_sidebar__channel .c-presence--away {
-          color: var(--silver); }
+          color: var(--border-bright); }
         .client_channels_list_container #col_channels .p-channel_sidebar__link .c-presence--active, .client_channels_list_container #col_channels .p-channel_sidebar__channel .c-presence--active {
           color: var(--green); }
       .client_channels_list_container #col_channels .p-channel_sidebar__close_container {
@@ -431,10 +509,50 @@ ts-mention {
       border-bottom: none;
       border-radius: 15px 15px 0 0; }
   .client_channels_list_container .p-channel_sidebar__close {
-    right: 0.1875rem; }
+    right: 0; }
     .client_channels_list_container .p-channel_sidebar__close:hover {
       color: var(--red); }
 
+@keyframes activeListItemScroll {
+  0% {
+    animation-timing-function: ease-out;
+    background-position: 0px center; }
+  16.6666666667% {
+    animation-timing-function: ease-in;
+    background-position: 24px center; }
+  25% {
+    animation-timing-function: ease-out;
+    background-position: 20px center; }
+  33.3333333333% {
+    background-position: 16px center; }
+  50% {
+    background-position: 16px center; }
+  100% {
+    background-position: 16px center; } }
+@keyframes activeListItemScrollQuick {
+  0% {
+    animation-timing-function: ease-out;
+    background-position: 0px center; }
+  16.6666666667% {
+    animation-timing-function: ease-in;
+    background-position: 24px center; }
+  25% {
+    animation-timing-function: ease-out;
+    background-position: 20px center; }
+  33.3333333333% {
+    background-position: 16px center; }
+  50% {
+    background-position: 16px center; }
+  66.6666666667% {
+    animation-timing-function: ease-in;
+    background-position: 40px center; }
+  75% {
+    animation-timing-function: ease-out;
+    background-position: 36px center; }
+  83.3333333333% {
+    background-position: 32px center; }
+  100% {
+    background-position: 32px center; } }
 .client_main_container .channel_header {
   background: var(--background-elevated);
   box-shadow: 0 8px 0 0 var(--background-elevated) !important;
@@ -504,25 +622,23 @@ ts-mention {
   .client_main_container #client_body .c-message_list__day_divider__label__pill {
     background-clip: border-box !important;
     background-color: transparent !important;
-    background-image: linear-gradient(to bottom, var(--background-elevated) 0%, var(--background) 100%);
-    background-position: center top;
-    background-size: 100%;
+    background-image: linear-gradient(to bottom, #25004f 0%, #25004f 100%), linear-gradient(to bottom, #25004f 0%, rgba(37, 0, 79, 0) 100%);
+    background-position: center top, center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
     border-color: var(--border-dim);
-    border-bottom-color: transparent !important;
-    border-top-color: transparent !important;
     border-radius: 0 !important;
     border-style: solid;
-    border-width: 0 1px;
+    border-width: 0 1px 0 0 !important;
     box-shadow: 0 -1px 0 0 var(--background-elevated);
     color: var(--text);
-    padding: 0.125rem 0.25rem;
+    padding: 0.125rem 8px 0.125rem 30px;
+    text-shadow: 0 0 2px var(--background);
     transform: translateY(0.6875rem);
     z-index: 203; }
   .client_main_container #client_body .c-virtual_list__item--sticky .c-message_list__day_divider__label__pill {
     border-color: var(--border-bright);
     transform: translateY(0.8125rem); }
-  .client_main_container #client_body .c-message_list.c-virtual_list--scrollbar[aria-label*="channel"] .c-message_list__day_divider__label__pill {
-    transform: translateY(0.6875rem); }
   .client_main_container #client_body .c-timestamp__label {
     color: var(--text) !important; }
   .client_main_container #client_body .c-message {
@@ -560,18 +676,16 @@ ts-mention {
       .client_main_container #client_body .c-message_attachment .c-message_attachment__media_trigger .c-expandable_trigger {
         color: var(--primary) !important; }
   .client_main_container #client_body .c-message_list__day_divider {
-    background-image: linear-gradient(to bottom, var(--background) 0%, var(--background-elevated) 100%);
-    background-position: center top;
+    background-image: linear-gradient(to bottom, var(--background) 0%, var(--background-elevated) 30px, var(--background-elevated) 100%), linear-gradient(to top, var(--background) 0%, var(--background-elevated) 30px, var(--background-elevated) 100%);
+    background-position: center top, center bottom;
     background-repeat: no-repeat;
-    background-size: 100% 30px;
-    padding-top: 30px; }
-  .client_main_container #client_body .c-message_list.c-virtual_list--scrollbar[aria-label*="channel"] .c-message_list__day_divider {
-    background-size: 100% 28px;
-    padding-top: 28px; }
+    background-size: 100% 39px, 100% 28px;
+    padding-top: 39px; }
   .client_main_container #client_body .c-message_list__day_divider__line {
     border-top-color: var(--border-dim) !important; }
   .client_main_container #client_body .c-message_list__day_divider__label {
-    color: var(--background); }
+    color: var(--background);
+    text-align: left; }
   .client_main_container #client_body .p-degraded_list__loading {
     background: var(--background) !important;
     color: var(--text) !important; }
@@ -580,6 +694,7 @@ ts-mention {
 .client_main_container .c-message_actions__container {
   background: var(--background-elevated) !important;
   border-color: var(--border-dim) !important;
+  box-shadow: 0 0 0 2px var(--background) !important;
   color: var(--text) !important; }
 .client_main_container .c-message_actions__button {
   color: var(--text) !important;
@@ -747,8 +862,12 @@ ts-mention {
     color: var(--text-bright) !important; }
 
 #footer {
-  background: var(--background) !important;
-  box-shadow: none; }
+  background-color: transparent !important;
+  background-image: linear-gradient(to bottom, rgba(17, 0, 38, 0) 0, var(--background) 0.6875rem, var(--background) 100%);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  box-shadow: none;
+  padding-top: 1.375rem; }
 
 #msg_preview {
   background: var(--background) !important; }
@@ -772,8 +891,7 @@ ts-mention {
   background: var(--background-elevated) !important;
   box-shadow: 0 1px 0 0 var(--border-bright) !important;
   left: -1px;
-  top: -23px !important;
-  z-index: 202; }
+  top: -23px !important; }
 
 #client-ui .file_list_item,
 .tab_container .file_list_item {
@@ -1312,6 +1430,80 @@ ts-jumper .p-jumper__help {
   background: var(--background) !important;
   color: var(--text) !important; }
 
+.c-search_modal:not(.c-search_modal--primarysearch) .c-search__input_box {
+  background: transparent !important; }
+.c-search_modal .c-search__input_and_close, .c-search_modal .c-search-autocomplete footer {
+  background: var(--background-elevated);
+  border-color: var(--border-dim);
+  color: var(--text); }
+.c-search_modal .c-search-autocomplete header {
+  color: var(--text); }
+.c-search_modal .c-search_autocomplete__suggestion_item {
+  color: var(--text-dim); }
+  .c-search_modal .c-search_autocomplete__suggestion_item .token {
+    background: var(--background);
+    box-shadow: inset 0 0 0 1px var(--border-bright);
+    border-color: var(--border-bright);
+    color: var(--text-bright); }
+  .c-search_modal .c-search_autocomplete__suggestion_item--selected {
+    background: var(--background-hover);
+    color: var(--text-bright); }
+
+.c-search {
+  background: var(--background);
+  color: var(--text); }
+
+.c-search__input_box .c-search__input_box__input {
+  border-color: var(--border-bright);
+  border-width: 1px; }
+
+.c-search__input_box__clear, .c-search__input_box__icon {
+  color: var(--text-dim); }
+
+.c-search__input_box__clear, .c-search-modal .c-search__input_box__clear {
+  border-color: var(--border-bright); }
+.c-search__input_box__clear:hover {
+  color: var(--text); }
+
+.c-search__input_and_close__close {
+  color: var(--text-dim); }
+  .c-search__input_and_close__close:hover {
+    color: var(--text); }
+
+.c-search__section_header {
+  color: var(--text); }
+
+.p-search_filter__dates {
+  background: var(--background-elevated);
+  border-color: var(--border-bright); }
+  .p-search_filter__dates .p-search_filter__date, .p-search_filter__dates .p-search_filter__date .p-search_filter__date_readout {
+    color: var(--text); }
+  .p-search_filter__dates .p-search_filter__date:first-child {
+    border-color: var(--border-bright); }
+
+.p-search_filter__title:before {
+  border-color: var(--border-bright); }
+
+.p-search_filter__title_text {
+  background: var(--background);
+  border-color: var(--border-bright);
+  border-style: solid;
+  border-width: 0 1px 0 0;
+  color: var(--text); }
+
+.c-search__tabs {
+  background-color: var(--background);
+  box-shadow: inset 0 -1px 0 0 var(--border-dim); }
+
+.c-search__tab.c-tabs__tab.c-tabs__tab--active, .c-search__tab.c-tabs__tab.c-tabs__tab--active:active, .c-search__tab.c-tabs__tab.c-tabs__tab--active:focus {
+  box-shadow: inset 0 -2px 0 0 var(--accent); }
+
+.c-tabs__tab.c-tabs__tab, .c-tabs__tab {
+  color: var(--text); }
+
+.c-tabs__tab.c-tabs__tab--active, .c-tabs__tab:active {
+  color: var(--text-bright); }
+
 .threads_section,
 .threads_caught_up_divider,
 .thread_body_container,
@@ -1320,9 +1512,10 @@ ts-jumper .p-jumper__help {
   background: var(--background);
   color: var(--text); }
 
-.c-message .reply_bar:hover {
-  background: var(--background) !important;
+.c-message .reply_bar:hover, .c-message__reply_bar:hover {
   border: 1px solid var(--border-dim) !important; }
+  .c-message .reply_bar:hover, .c-message .reply_bar:hover .c-message__reply_bar_view_thread, .c-message__reply_bar:hover, .c-message__reply_bar:hover .c-message__reply_bar_view_thread {
+    background: var(--background) !important; }
 
 #convo_tab .message_input,
 #convo_tab #msg_text {
@@ -1344,18 +1537,29 @@ ts-thread .thread_messages {
   border-color: var(--border-dim) !important; }
 ts-thread .thread_channel_name a {
   color: var(--text-special); }
-ts-thread .inline_message_input_container {
-  border-color: var(--border-dim) !important; }
 
 ts-thread .collapse_inline_thread_container:hover,
 ts-thread .view_all_replies_container:hover {
   background-color: var(--background-elevated); }
 
-#threads_msgs .inline_message_input_container.with_file_upload {
+ts-thread .inline_message_input_container, ts-thread .inline_message_input_container.with_file_upload, ts-thread .inline_message_input_container .inline_file_upload, .upload_in_threads .inline_message_input_container, .upload_in_threads .inline_message_input_container.with_file_upload, .upload_in_threads .inline_message_input_container .inline_file_upload {
+  border-color: var(--border-dim) !important; }
+ts-thread .inline_message_input_container .inline_file_upload, .upload_in_threads .inline_message_input_container .inline_file_upload {
+  color: var(--border-dim) !important; }
+ts-thread.has_focus .inline_message_input_container, ts-thread.has_focus .inline_message_input_container.with_file_upload, ts-thread.has_focus .inline_message_input_container .inline_file_upload, .upload_in_threads.has_focus .inline_message_input_container, .upload_in_threads.has_focus .inline_message_input_container.with_file_upload, .upload_in_threads.has_focus .inline_message_input_container .inline_file_upload {
+  border-color: var(--border-bright) !important; }
+ts-thread.has_focus .inline_message_input_container .inline_file_upload, .upload_in_threads.has_focus .inline_message_input_container .inline_file_upload {
+  color: var(--border-bright) !important; }
+
+#reply_container .inline_message_input_container.with_file_upload, #threads_msgs .inline_message_input_container.with_file_upload {
   background-color: transparent !important;
   color: var(--text) !important; }
-  #threads_msgs .inline_message_input_container.with_file_upload > form {
-    border-radius: 10px !important; }
+
+#reply_container .inline_message_input_container.with_file_upload > form {
+  border-radius: 0.25rem !important; }
+
+#threads_msgs .inline_message_input_container.with_file_upload > form {
+  border-radius: 10px !important; }
 
 /* CodeMirror syntax highlighting */
 .cm-s-default .cm-header {
@@ -1472,11 +1676,16 @@ li.active[class] span {
 .channel_purpose_text {
   color: var(--text) !important; }
 
+#convo_container .convo_flexpane_divider {
+  border-color: var(--border-bright) !important; }
+
 #convo_container .convo_flexpane_divider .reply_count {
   color: var(--text) !important;
   background-color: var(--background) !important;
-  border: 1px solid var(--border-bright) !important;
-  border-radius: 1rem; }
+  border-color: var(--border-bright) !important;
+  border-style: solid !important;
+  border-width: 0 1px 0 0 !important;
+  border-radius: 0 !important; }
 
 /* Mentions */
 .mention_day_container_div .c-message_list__day_divider__label,
@@ -1485,8 +1694,8 @@ li.active[class] span {
 
 /* Conversations */
 #convo_container .convo_flexpane_divider .reply_count {
-  border-radius: 10px;
-  padding: 0px 10px; }
+  border-radius: 0 !important;
+  padding: 0 0.5rem 0 0; }
 
 .mention_day_container_div .day_divider:before {
   background-color: transparent !important;
@@ -1511,6 +1720,11 @@ li.active[class] span {
 .file_container .CodeMirror .sssh-line:before,
 .file_container .sssh-code .CodeMirror-code > div:before,
 .file_container .sssh-code .sssh-line:before,
+.c-file_container,
+.c-file_container .CodeMirror .CodeMirror-code > div:before,
+.c-file_container .CodeMirror .sssh-line:before,
+.c-file_container .sssh-code .CodeMirror-code > div:before,
+.c-file_container .sssh-code .sssh-line:before,
 .search_message_result,
 .search_result_with_extract,
 #search_filters a {
@@ -1521,6 +1735,10 @@ li.active[class] span {
 .file_container .CodeMirror .sssh-line pre,
 .file_container .sssh-code .CodeMirror-code > div pre,
 .file_container .sssh-code .sssh-line pre,
+.c-file_container .CodeMirror .CodeMirror-code > div pre,
+.c-file_container .CodeMirror .sssh-line pre,
+.c-file_container .sssh-code .CodeMirror-code > div pre,
+.c-file_container .sssh-code .sssh-line pre,
 .search_message_result .search_message_result_meta a,
 .search_message_result .search_message_result_meta .date_links a,
 #search_filters.files #filter_files, #search_filters.messages #filter_messages {
@@ -1618,7 +1836,7 @@ span.match {
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, var(--background-elevated)), color-stop(1, rgba(255, 255, 255, 0))); }
 
 /* files */
-.file_container.generic_container .file_header_meta .meta_hover {
+.file_container.generic_container .file_header_meta .meta_hover, .c-file_container.generic_container .file_header_meta .meta_hover {
   background-color: transparent !important; }
 
 .file_preview_action.btn.ts_tip, .file_preview_link.btn.file_comment_link {
@@ -1829,7 +2047,28 @@ feature_archive_deeplink feature_texty winssb light_theme {
   background: var(--background) !important;
   color: var(--text) !important; }
 
-.message_body, .file_container, .initial_comment {
-  margin-left: 20px !important; }
+.file_container, .c-file_container {
+  border-color: var(--border-dim);
+  border-style: solid;
+  border-width: 1px; }
+  .file_container:hover, .c-file_container:hover {
+    border-color: var(--border-bright); }
+
+.c-message_group {
+  background-color: var(--background-elevated);
+  border-color: var(--border-dim); }
+  .c-message_group:hover {
+    border-color: var(--border-bright); }
+  .c-message_group .c-channel_name, .c-message_group .c-message_group__header {
+    color: var(--text-dim); }
+  .c-message_group .c-search_message__body {
+    color: var(--text); }
+
+.p-message_limit_banner {
+  background-color: var(--background-elevated);
+  border-color: var(--border-bright);
+  color: var(--text); }
+  .p-message_limit_banner .c-icon--eye-closed {
+    color: var(--text); }
 
 /*# sourceMappingURL=custom.css.map */

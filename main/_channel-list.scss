@@ -75,11 +75,25 @@
 
       // Channels and users
       &__link, &__channel {
+        animation-delay: 180ms;
+        animation-duration: 1080ms;
+        animation-fill-mode: none;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        background-clip: padding-box !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='32' width='16' viewBox='0 0 32 64'%3E%3Crect fill='%23110026' width='32' height='64'/%3E%3Cpolygon fill='%2325004f' points='32,32 16,0 0,0 16,32 0,64 16,64 '/%3E%3C/svg%3E");
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-size: 0 32px;
         border-color: transparent;
-        border-radius: 0 20px 20px 0;
+        border-radius: 0 !important;
         border-style: solid;
-        border-width: 1px 1px 1px 0;
+        border-width: 1px 0;
         color: $text !important;
+        transition-delay: 0ms, 180ms, 0ms, 0ms, 0ms;
+        transition-duration: 90ms, 0ms, 180ms, 90ms, 90ms;
+        transition-property: background-color, background-position, background-size, border-color, color;
+        transition-timing-function: ease-in-out;
 
         &:hover,
         &:link,
@@ -96,9 +110,25 @@
           color: $textBright !important;
         }
         &--selected {
-          background: $bg !important;
-          border-color: $border;
-          border-radius: 0 20px 20px 0;
+          animation-name: activeListItemScroll;
+          background-color: transparent !important;
+          background-repeat: repeat-x;
+          background-size: 16px 32px;
+          border-color: transparent !important;
+          border-radius: 0 !important;
+
+          &, &:link {
+            color: $primary !important;
+          }
+
+          &:after, &:before {
+            color: $primary !important;
+          }
+
+          &:hover {
+            animation-name: activeListItemScrollQuick;
+            background-color: transparent !important;
+          }
 
           // Highlight presence of current channel
           .c-presence {
@@ -127,7 +157,7 @@
         // Presence indicator
         .c-presence {
           &--away {
-            color: $silver;
+            color: $border;
           }
           &--active {
             color: $green;
@@ -168,10 +198,82 @@
   }
 
   .p-channel_sidebar__close {
-    right: 0.1875rem;
+    right: 0;
 
     &:hover {
       color: $red;
     }
+  }
+}
+
+@keyframes activeListItemScroll {
+  0% {
+    animation-timing-function: ease-out;
+    background-position: 0px center;
+  }
+
+  #{percentage(1/6)} {
+    animation-timing-function: ease-in;
+    background-position: 24px center;
+  }
+
+  #{percentage(1/4)} {
+    animation-timing-function: ease-out;
+    background-position: 20px center;
+  }
+
+  #{percentage(1/3)} {
+    background-position: 16px center;
+  }
+
+  50% {
+    background-position: 16px center;
+  }
+
+  100% {
+    background-position: 16px center;
+  }
+}
+
+@keyframes activeListItemScrollQuick {
+  0% {
+    animation-timing-function: ease-out;
+    background-position: 0px center;
+  }
+
+  #{percentage(1/6)} {
+    animation-timing-function: ease-in;
+    background-position: 24px center;
+  }
+
+  #{percentage(1/4)} {
+    animation-timing-function: ease-out;
+    background-position: 20px center;
+  }
+
+  #{percentage(1/3)} {
+    background-position: 16px center;
+  }
+
+  50% {
+    background-position: 16px center;
+  }
+
+  #{percentage(2/3)} {
+    animation-timing-function: ease-in;
+    background-position: 40px center;
+  }
+
+  #{percentage(3/4)} {
+    animation-timing-function: ease-out;
+    background-position: 36px center;
+  }
+
+  #{percentage(5/6)} {
+    background-position: 32px center;
+  }
+
+  100% {
+    background-position: 32px center;
   }
 }

@@ -8,9 +8,12 @@
 }
 
 //The reply bar
-.c-message .reply_bar:hover {
-  background: $bg !important;
+.c-message .reply_bar:hover, .c-message__reply_bar:hover {
   border: 1px solid $borderDim !important;
+
+  &, .c-message__reply_bar_view_thread {
+    background: $bg !important;
+  }
 }
 
 // The tab on the right
@@ -47,10 +50,6 @@ ts-thread {
   .thread_channel_name a {
     color: $textSpecial;
   }
-
-  .inline_message_input_container {
-    border-color: $borderDim !important;
-  }
 }
 
 ts-thread .collapse_inline_thread_container:hover,
@@ -58,10 +57,42 @@ ts-thread .view_all_replies_container:hover {
   background-color: $bg2;
 }
 
-#threads_msgs .inline_message_input_container.with_file_upload {
+ts-thread, .upload_in_threads {
+  .inline_message_input_container {
+    &, &.with_file_upload, .inline_file_upload {
+      border-color: $borderDim !important;
+    }
+
+    .inline_file_upload {
+      color: $borderDim !important;
+    }
+  }
+
+  &.has_focus {
+    .inline_message_input_container {
+      &, &.with_file_upload, .inline_file_upload {
+        border-color: $border !important;
+      }
+
+      .inline_file_upload {
+        color: $border !important;
+      }
+    }
+  }
+}
+
+#reply_container .inline_message_input_container.with_file_upload, #threads_msgs .inline_message_input_container.with_file_upload {
   background-color: transparent !important;
   color: $text !important;
+}
 
+#reply_container .inline_message_input_container.with_file_upload {
+  > form {
+    border-radius: 0.25rem !important;
+  }
+}
+
+#threads_msgs .inline_message_input_container.with_file_upload {
   > form {
     border-radius: 10px !important;
   }
